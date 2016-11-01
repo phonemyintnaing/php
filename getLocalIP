@@ -1,0 +1,11 @@
+//php get current server ip 
+
+From CLI
+
+PHP < 5.3.0
+
+$localIP = getHostByName(php_uname('n'));
+
+PHP >= 5.3.0
+
+$localIP = getHostByName(getHostName());
