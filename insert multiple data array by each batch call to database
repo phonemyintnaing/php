@@ -1,0 +1,41 @@
+//insert multiple data array by each batch 
+$data = $array with data  ;				
+			
+$count_insert = count($data);
+			
+$loop = ceil( $count_insert / 400 );
+$aloop = ( $count_insert / 1000 );
+$slice = -1;
+$J = 0;	
+		
+$orgArray = count($data) ;
+
+for ($i=1; $i < ($loop+1) ; $i++) {
+					
+	$break = ($i * 400) - 1 ;	
+
+	foreach( $data as $key => $row){
+
+	$sql_insert[] = '('."'".$row[columnA]."'".', NOW(), '."'".$row[columnB]."'".', '."'".$row[columnC]."'".')';	
+
+
+
+	if ($key == $break || $key == ($orgArray - 1) )
+	{					
+			
+		$slice = $break;
+
+		$sql_insertion =('INSERT INTO tablea(a,datetime,b,c) VALUES '.implode(',', $sql_insert));
+		$s = $this->_db->prepare($sql_insertion);
+		$s->execute();	
+
+		$sql_insert = ARRAY();//reset for next loop
+		$data = array_slice( $data, 400, null, true); //loop by 400 data
+
+		break;
+	}
+					
+	} //end foreach insert
+}	// end for loop slice insert by 400 
+						
+						
