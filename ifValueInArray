@@ -1,0 +1,7 @@
+
+// check if array contain a value, save time than foreach check
+$array = array('a', 'b', 'c', 'd');
+
+if (in_array('c', $array)) {
+    echo 'this array contains c';
+}
