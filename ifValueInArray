@@ -1,5 +1,10 @@
 
 // check if array contain a value, save time than foreach check
+
+#bool in_array ( mixed $needle , array $haystack [, bool $strict = FALSE ] )
+#Searches haystack for needle using loose comparison unless strict is set.
+
+
 $array = array('a', 'b', 'c', 'd');
 
 if (in_array('c', $array)) {
