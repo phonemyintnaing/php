@@ -1,0 +1,11 @@
+<?php 
+ 
+$reg = new COM("WScript.Shell") or die("Requires Windows Scripting Host"); 
+$k = 
+"HKEY_LOCAL_MACHINE\SOFTWARE\Guardware\Report\Version"  ; 
+ 
+echo $k."\n\r"; 
+$disp = $reg->RegRead($k); 
+echo '-'.$disp."-\n\r"; 
+ 
+?> 
