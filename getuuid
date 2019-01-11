@@ -1,0 +1,10 @@
+       
+       //windows actual uuid
+       $command="echo | wmic.exe path win32_computersystemproduct get uuid";
+            $uuid=shell_exec($command);
+            
+      //      laravel uuig create
+            
+            use Illuminate\Support\Str;
+                   $uuid = Str::uuid();
+
